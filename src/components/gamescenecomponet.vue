@@ -14,6 +14,10 @@
       <div class="front face"></div>
       <div class="back face"></div>
     </div>
+    <div class="card opponent" :class="cardOpponentOut ? 'out' : 'in'">
+      <div class="front face"></div>
+      <div class="back face"></div>
+    </div>
   </div>
 </template>
 <script>
@@ -31,8 +35,10 @@ export default {
       cardCOut: true,
       cardASelected: false,
       cardBSelected: false,
-      cardCSelected: false
-
+      cardCSelected: false,
+      selectedCardPower: 0,
+      opponentCardPower: 100,
+      cardOpponentOut: true
     }
   },
   mounted () {
@@ -60,18 +66,21 @@ export default {
       this.cardAFlipped = false
       this.cardBOut = true
       this.cardCOut = true
+      this.cardOpponentOut = false
     },
     cardBClick () {
       this.cardBSelected = true
       this.cardBFlipped = false
       this.cardAOut = true
       this.cardCOut = true
+      this.cardOpponentOut = false
     },
     cardCClick () {
       this.cardCSelected = true
       this.cardCFlipped = false
       this.cardBOut = true
       this.cardAOut = true
+      this.cardOpponentOut = false
     }
   }
 }
@@ -138,7 +147,24 @@ export default {
     transform translate3d(0, -10px, 0)
   }
   .card.selected {
-    bottom: 0
+    bottom: 150px
     left: 300px
+  }
+  .card.power{
+    position absolute
+    width:100%
+    text-align center
+    font-size 2em
+    bottom 30px
+  }
+  .card.opponent{
+    bottom 150px
+  }
+  .card.opponent.out{
+    left -200px
+  }
+  .card.opponent.in{
+    transition-delay .8s
+    left 40px
   }
 </style>

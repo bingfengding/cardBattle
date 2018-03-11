@@ -2,7 +2,6 @@
   <div id="gameover-scene"
     :class="['scene', show ? 'in' : 'out',isWon ? 'won' : 'loss']"
   >
-
   </div>
 </template>
 <script>
@@ -35,5 +34,4 @@ export default {
     transform: translate3d(100%, 0, 0)
   #gameover-scene.in
     transform: translate3d(0, 0, 0)
-
 </style>
