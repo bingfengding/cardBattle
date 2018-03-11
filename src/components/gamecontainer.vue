@@ -12,7 +12,7 @@
   </header>
     <section class="how-to-play">
       <h2>玩法介绍</h2>
-      <p>选择一张牌，然后观看点数的PK结果</p>
+      <p>选择一张牌，然后观看点数的PK结果!</p>
     </section>
     <footer>
       <p>给我个打赏吧！</p>
