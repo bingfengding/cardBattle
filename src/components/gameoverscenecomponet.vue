@@ -2,6 +2,9 @@
   <div id="gameover-scene"
     :class="['scene', show ? 'in' : 'out',isWon ? 'won' : 'loss']"
   >
+    <div class="reStart">
+      <button @click = "reStart" class="reStartBtn">重新开始游戏</button>
+    </div>
   </div>
 </template>
 <script>
@@ -20,6 +23,11 @@ export default {
         this.show = true
       }.bind(this)
     )
+  },
+  methods: {
+    reStart () {
+      window.location.reload()
+    }
   }
 }
 </script>
@@ -34,4 +42,18 @@ export default {
     transform: translate3d(100%, 0, 0)
   #gameover-scene.in
     transform: translate3d(0, 0, 0)
+  .reStart{
+    width 200px
+    position absolute
+    left 140px
+    top 200px
+
+  }
+    .reStartBtn{
+      width 200px
+      font-size 24px
+      border-radius 8px
+      height 40px
+      background-color #d1cfda
+    }
 </style>
