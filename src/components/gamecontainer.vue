@@ -16,9 +16,9 @@
       <summary>玩法介绍</summary>
       <p>选择一张牌，然后观看点数的PK结果!</p>
     </details>
-    <footer>
-      <p>赞赏支持</p>
-      <img id="payme" src="../../static/payme.png">
+    <footer style="display:none">
+      <p @click="support">赞赏支持</p>
+      <img id="payme" src="../../static/payme.png" :class= "[ hide ? 'paymeHide': '']">
     </footer>
   </div>
   </div>
@@ -27,16 +27,29 @@
 import startscene from './startscenecomponent'
 import gamescene from './gamescenecomponet.vue'
 import gameoverscene from './gameoverscenecomponet.vue'
+import $ from 'jquery'
 export default {
   data () {
     return {
-
+      hide: true
     }
   },
   components: {
     startscene,
     gamescene,
     gameoverscene
+  },
+  mounted () {
+    $(document).on('click', this.supportHide)
+  },
+  methods: {
+    support () {
+      if (this.hide) {
+        this.hide = false
+      } else {
+        this.hide = true
+      }
+    }
   }
 }
 </script>
@@ -59,10 +72,10 @@ export default {
     position: absolute
     overflow: hidden
     border-radius: 8px
-    transition: all .3s ease-out
+    transition all .3s ease-out
   #payme
-    width:240px
-    height: 256px
+    width 240px
+    height 256px
   footer
     margin 20px auto
     width 480px
@@ -80,7 +93,7 @@ export default {
   .how-to-play
     margin 20px auto
     width 480px
-    text-align: center;
+    text-align center
     summary
       font-size 20px
       outline none
@@ -95,4 +108,6 @@ export default {
     bottom 0
     background-color rgba(0,0,0,0.3)
     z-index -1
+  .paymeHide
+    display none
 </style>
